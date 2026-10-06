@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { updateSummary } from '../data/store';
 import { Dashboard } from './Dashboard';
+import { OfflineBanner } from './OfflineBanner';
 import { PracticeTest } from './PracticeTest';
 import { Session } from './Session';
 import { useLearner } from './useLearner';
@@ -37,13 +38,16 @@ export function LearnerApp({ learnerKey, displayName, onSwitch, onOverview }: Pr
 
   if (!learner.loaded) return <main class="page"><p class="muted">Voortgang laden...</p></main>;
 
+  let content;
   switch (route.name) {
     case 'session':
-      return <Session learner={learner} forceLesson={route.forceLesson} onDone={home} />;
+      content = <Session learner={learner} forceLesson={route.forceLesson} onDone={home} />;
+      break;
     case 'test':
-      return <PracticeTest learner={learner} onDone={home} />;
+      content = <PracticeTest learner={learner} onDone={home} />;
+      break;
     default:
-      return (
+      content = (
         <Dashboard
           learner={learner}
           onPractice={(forceLesson) => setRoute({ name: 'session', forceLesson })}
@@ -53,4 +57,10 @@ export function LearnerApp({ learnerKey, displayName, onSwitch, onOverview }: Pr
         />
       );
   }
+  return (
+    <>
+      <OfflineBanner pending={learner.pending} />
+      {content}
+    </>
+  );
 }

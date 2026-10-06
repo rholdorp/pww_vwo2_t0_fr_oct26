@@ -140,3 +140,5 @@ ul.plain li:last-child { border-bottom: none; }
 button.choice { text-align: left; }
 button.choice.good { border-color: var(--good); background: var(--good-bg); color: var(--good); opacity: 1; }
 button.choice.bad { border-color: var(--bad); background: var(--bad-bg); opacity: 1; }
+.banner.top { max-width: 608px; margin: max(12px, env(safe-area-inset-top)) 16px 0; }
+@media (min-width: 640px) { .banner.top { margin-left: auto; margin-right: auto; } }
