@@ -5,7 +5,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 ## 1. Projectopzet
 
 - [x] 1.1 Vite + TypeScript + Preact-project opzetten met `npm run dev`, `build` en `test` (Vitest); `.gitignore` voor `node_modules`, `dist` en `.DS_Store`; controleren dat `npm run build` en `npm test` slagen
-- [ ] 1.2 Basislayout voor telefoon en laptop (één kolom, grote invoervelden, Nederlandse teksten); controleren in de browser op 375px en desktopbreedte
+- [x] 1.2 Basislayout voor telefoon en laptop (één kolom, grote invoervelden, Nederlandse teksten); controleren in de browser op 375px en desktopbreedte
 
 ## 2. Lesstof (study-content)
 
