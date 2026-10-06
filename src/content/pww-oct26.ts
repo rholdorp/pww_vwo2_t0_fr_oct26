@@ -1,7 +1,7 @@
 // Content pack: proefwerk Frans VWO 2, oktober 2026.
 // Source: "V2_ Draaiboek oktober 2025 Grammatica VERSION ELEVE.pdf".
 
-import type { IrregularVerb, RegularVerb, Subject } from './types';
+import type { IrregularVerb, RegularVerb, Subject, VocabItem, VocabPart } from './types';
 
 // Draaiboek p.5: "Deze lijst van regelmatige werkwoorden op -er moet je
 // helemaal uit je hoofd leren F-N-F". Spelling overrides follow correct
@@ -115,3 +115,111 @@ export const subjects: Subject[] = [
   { label: 'Elles', person: 'ils' },
   { label: 'Les filles', person: 'ils' },
 ];
+
+// Draaiboek p.22-25: vocabulaire chapitre 1, delen A, B, E, F.
+// Per part: left column first (1-10), then right column (11-20).
+// Format: French as printed | Dutch as printed | optional gender marker.
+const VOCAB_SOURCE: Record<VocabPart, [string, string, string?][]> = {
+  A: [
+    ['la rentrée', 'de eerste schooldag'],
+    ['rencontrer', 'ontmoeten'],
+    ["l'ami(e)", 'de vriend(in)'],
+    ['le frère', 'de broer'],
+    ['le/la jeune', 'de jongere'],
+    ['la découverte', 'de ontdekking'],
+    ['en avion', 'met het vliegtuig'],
+    ['en train', 'met de trein'],
+    ['en bateau', 'met de boot'],
+    ['en voiture', 'met de auto'],
+    ['pourquoi', 'waarom'],
+    ['parce que', 'omdat'],
+    ['mais', 'maar'],
+    ['incroyable', 'ongelofelijk'],
+    ['content(e)', 'tevreden'],
+    ['en Espagne', 'in/naar Spanje', 'v'],
+    ['en Allemagne', 'in/naar Duitsland', 'v'],
+    ['en Angleterre', 'in/naar Engeland', 'v'],
+    ['aux Pays-Bas', 'in/naar Nederland', 'm mv'],
+    ['en Belgique', 'in/naar België', 'v'],
+  ],
+  B: [
+    ['le voyage', 'de reis'],
+    ['le pays', 'het land'],
+    ['la famille', 'de familie'],
+    ['la sœur', 'de zus'],
+    ['la sortie', 'het uitstapje'],
+    ['au début', 'in het begin, eerst'],
+    ['ensuite', 'daarna'],
+    ['pauvre', 'arm'],
+    ['loin', 'ver'],
+    ['la météo', 'het weerbericht'],
+    ['je crois', 'ik geloof'],
+    ['je prends', 'ik neem, ik pak'],
+    ["j'ai peur", 'ik ben bang'],
+    ['rester', 'blijven'],
+    ['arriver', 'aankomen'],
+    ['il fait froid', 'het is koud'],
+    ['il fait mauvais', 'het is slecht weer'],
+    ['il a plu', 'het heeft geregend'],
+    ['il pleut', 'het regent'],
+    ['le temps', 'het weer, de tijd'],
+  ],
+  E: [
+    ['tout', 'alles, alle'],
+    ['presque', 'bijna'],
+    ['trop', 'te, te veel'],
+    ["d'abord", 'ten eerste, eerst'],
+    ['enfin', 'eindelijk'],
+    ['au printemps', 'in de lente'],
+    ['en été', 'in de zomer'],
+    ['en automne', 'in de herfst'],
+    ['en hiver', 'in de winter'],
+    ['toujours', 'altijd'],
+    ['je veux', 'ik wil'],
+    ["à l'étranger", 'in het buitenland', 'm'],
+    ['fatigué(e)', 'moe'],
+    ['voyager', 'reizen'],
+    ['la ville', 'de stad'],
+    ['néerlandais', 'Nederlands'],
+    ['anglais', 'Engels'],
+    ['allemand', 'Duits'],
+    ['espagnol', 'Spaans'],
+    ['français', 'Frans'],
+  ],
+  F: [
+    ["l'endroit", 'de plek', 'm'],
+    ["l'eau", 'het water', 'v'],
+    ['la mer', 'de zee'],
+    ['la piscine', 'het zwembad'],
+    ['voici', 'hier is/zijn'],
+    ['faire du camping', 'kamperen'],
+    ["l'excursion", 'de excursie', 'v'],
+    ['le séjour', 'het verblijf'],
+    ["l'activité", 'de activiteit', 'v'],
+    ['la semaine', 'de week'],
+    ['sur', 'op'],
+    ['aussi', 'ook'],
+    ['découvrir', 'ontdekken'],
+    ['visiter', 'bezoeken'],
+    ['proposer', '(iets) voorstellen'],
+    ['la montagne', 'de berg'],
+    ['le château', 'het kasteel'],
+    ["l'escalade", 'het klimmen', 'v'],
+    ['faire les magasins', 'winkelen'],
+    ['la soirée', 'de avond'],
+  ],
+};
+
+function slug(s: string): string {
+  return s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/œ/g, 'oe')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export const vocab: VocabItem[] = (Object.keys(VOCAB_SOURCE) as VocabPart[]).flatMap((part) =>
+  VOCAB_SOURCE[part].map(([fr, nl, gender]) => ({ id: `${part}-${slug(fr)}`, part, fr, nl, gender })),
+);

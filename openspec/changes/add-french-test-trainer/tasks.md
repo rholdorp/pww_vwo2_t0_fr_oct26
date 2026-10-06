@@ -12,7 +12,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 - [x] 2.1 Typen voor het inhoudspakket vastleggen (werkwoord, onregelmatige vormen, vocabulaire-item, uitleg, les, metadata); controleren dat `tsc --noEmit` slaagt
 - [x] 2.2 De 25 -er werkwoorden met NL-betekenissen, elisie en spellingsvarianten overnemen uit PDF blz. 5, plus être/avoir/faire/aller; arriver/rentrer markeren als uitgesloten in de passé composé
 - [x] 2.3 Vervoegingsgenerator voor présent en passé composé met overrides; controleren met een Vitest-tabel van alle 25 werkwoorden × 6 personen × 2 tijden plus de onregelmatige vormen (o.a. mangeons, commençons, j'achète, je préfère, je paie/paye, j'ai été)
-- [ ] 2.4 De 80 vocabulairewoorden (A, B, E, F) overnemen uit PDF blz. 22-25 met lidwoorden en alle NL-betekenissen; controleren met een test op 4 × 20 items en een handmatige regel-voor-regelvergelijking met de PDF
+- [x] 2.4 De 80 vocabulairewoorden (A, B, E, F) overnemen uit PDF blz. 22-25 met lidwoorden en alle NL-betekenissen; controleren met een test op 4 × 20 items en een handmatige regel-voor-regelvergelijking met de PDF
 - [ ] 2.5 Uitlegteksten per grammaticaonderdeel en de lessenvolgorde (design D9) toevoegen, plus toetsdatum 2026-10-12; controleren met een test dat elk item in precies één les zit
 - [ ] 2.6 Item-ID's en blokindeling (design D3) afleiden uit het pakket; controleren met een test op de aantallen per blok
 
