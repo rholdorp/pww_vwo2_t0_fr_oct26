@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { pack } from '../content/pww-oct26';
 import type { Lesson } from '../content/types';
 import type { CheckResult } from '../engine/check';
@@ -54,6 +54,11 @@ export function Session({ learner, forceLesson, onDone }: Props) {
     const q = questionFor(id, { pack, states, rng: Math.random, knownVerbs: known });
     return q && { q, itemId: id };
   };
+
+  // Without a new lesson the session starts with questions right away.
+  useEffect(() => {
+    if (!lesson) setCurrent(nextQuestion([]));
+  }, []);
 
   const startQuestions = () => {
     setLesson(undefined);
