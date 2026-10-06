@@ -1,7 +1,11 @@
 // Content pack: proefwerk Frans VWO 2, oktober 2026.
 // Source: "V2_ Draaiboek oktober 2025 Grammatica VERSION ELEVE.pdf".
 
-import type { IrregularVerb, RegularVerb, Subject, VocabItem, VocabPart } from './types';
+import { itemId, spellingPersons } from './items';
+import type {
+  ContentPack, Explanation, IrregularVerb, Lesson, RegularVerb, Subject, VocabItem, VocabPart,
+} from './types';
+import { PERSONS } from './types';
 
 // Draaiboek p.5: "Deze lijst van regelmatige werkwoorden op -er moet je
 // helemaal uit je hoofd leren F-N-F". Spelling overrides follow correct
@@ -223,3 +227,203 @@ function slug(s: string): string {
 export const vocab: VocabItem[] = (Object.keys(VOCAB_SOURCE) as VocabPart[]).flatMap((part) =>
   VOCAB_SOURCE[part].map(([fr, nl, gender]) => ({ id: `${part}-${slug(fr)}`, part, fr, nl, gender })),
 );
+
+// Explanations in Dutch, following the draaiboek (p.4, 8, 14, 17).
+export const explanations: Explanation[] = [
+  {
+    id: 'avoir-etre',
+    title: 'Avoir en être in de présent',
+    paragraphs: [
+      'Avoir (hebben) en être (zijn) zijn onregelmatig: er is geen regel, je leert de vormen uit je hoofd.',
+      'Avoir heb je ook nodig voor de passé composé (j\'ai donné = ik heb gegeven). Leer hem dus extra goed.',
+    ],
+    table: [
+      ["j'ai", 'je suis'],
+      ['tu as', 'tu es'],
+      ['il/elle/on a', 'il/elle/on est'],
+      ['nous avons', 'nous sommes'],
+      ['vous avez', 'vous êtes'],
+      ['ils/elles ont', 'ils/elles sont'],
+    ],
+    tips: [
+      "Je ai bestaat niet: het is altijd j'ai.",
+      'Let op het accent in vous êtes.',
+    ],
+  },
+  {
+    id: 'er-present',
+    title: 'Présent van de regelmatige werkwoorden op -er',
+    paragraphs: [
+      'Maak de stam: haal -er van het hele werkwoord af. Donner → donn-.',
+      'Zet de juiste uitgang achter de stam, afhankelijk van het onderwerp.',
+    ],
+    table: [
+      ['je donne', 'stam + e'],
+      ['tu donnes', 'stam + es'],
+      ['il/elle/on donne', 'stam + e'],
+      ['nous donnons', 'stam + ons'],
+      ['vous donnez', 'stam + ez'],
+      ['ils/elles donnent', 'stam + ent'],
+    ],
+    tips: [
+      "Begint het werkwoord met een klinker of h, dan wordt je → j': j'aime, j'habite, j'oublie.",
+      'On betekent "wij" (spreektaal) of "men" en krijgt dezelfde vorm als il/elle.',
+      'Ken ook de betekenis: op de toets staat het Nederlandse werkwoord tussen haakjes.',
+    ],
+  },
+  {
+    id: 'faire-aller',
+    title: 'Faire en aller in de présent',
+    paragraphs: ['Faire (doen/maken) en aller (gaan) zijn onregelmatig: leer de vormen uit je hoofd.'],
+    table: [
+      ['je fais', 'je vais'],
+      ['tu fais', 'tu vas'],
+      ['il/elle/on fait', 'il/elle/on va'],
+      ['nous faisons', 'nous allons'],
+      ['vous faites', 'vous allez'],
+      ['ils/elles font', 'ils/elles vont'],
+    ],
+    tips: ['Vous faites (niet: vous faisez).', 'Ils font en ils vont lijken op elkaar: let goed op.'],
+  },
+  {
+    id: 'spelling',
+    title: 'Let op: spelling bij een paar -er werkwoorden',
+    paragraphs: [
+      'Deze werkwoorden gaan bijna helemaal zoals donner, maar de spelling verandert een beetje zodat de uitspraak klopt.',
+    ],
+    table: [
+      ['manger, changer', 'nous mangeons, nous changeons (e blijft staan)'],
+      ['commencer', 'nous commençons (ç)'],
+      ['acheter', "j'achète, tu achètes, il achète, ils achètent"],
+      ['préférer', 'je préfère, tu préfères, il préfère, ils préfèrent'],
+      ['payer, essayer', 'je paie of je paye, ils paient of ils payent'],
+    ],
+    tips: ['Bij nous en vous blijft acheter/préférer gewoon: nous achetons, vous préférez.'],
+  },
+  {
+    id: 'passe-compose',
+    title: 'Passé composé',
+    paragraphs: [
+      'Met de passé composé vertel je wat je hebt gedaan. Hij bestaat uit twee delen:',
+      'hulpwerkwoord avoir in de présent + voltooid deelwoord.',
+      'Voltooid deelwoord van een -er werkwoord: stam + é. Donner → donné.',
+      'Onregelmatig: être → été, avoir → eu, faire → fait.',
+    ],
+    table: [
+      ["j'ai donné", 'ik heb gegeven'],
+      ['tu as donné', 'jij hebt gegeven'],
+      ['il/elle/on a donné', 'hij/zij heeft gegeven'],
+      ['nous avons donné', 'wij hebben gegeven'],
+      ['vous avez donné', 'jullie hebben gegeven'],
+      ['ils/elles ont donné', 'zij hebben gegeven'],
+    ],
+    tips: [
+      'Vergeet het accent op de é niet: il donne (présent) is iets anders dan il a donné.',
+      "Ook bij être: j'ai été = ik ben geweest.",
+    ],
+  },
+  {
+    id: 'toetszin',
+    title: 'Zo los je een toetszin op',
+    paragraphs: [
+      'Op de toets staat bijvoorbeeld: Les filles (geven) ______.',
+      '1. Vertaal het werkwoord: geven = donner.',
+      '2. Bepaal de persoon: les filles = zij (meervoud) = ils/elles. Le prof en Isabelle = il/elle. Monsieur, vous = vous.',
+      '3. Vervoeg: elles donnent. In de passé composé: elles ont donné.',
+    ],
+  },
+  {
+    id: 'vocab',
+    title: 'Woorden leren',
+    paragraphs: [
+      'Je moet de woorden beide kanten op kennen: Frans → Nederlands en Nederlands → Frans.',
+      'Leer bij zelfstandige naamwoorden het lidwoord mee (le, la, l\'). Zonder lidwoord is het fout.',
+    ],
+    tips: ['Accenten tellen mee: la météo, le château, la sœur.'],
+  },
+];
+
+const verbsByNr = (from: number, to: number) => regularVerbs.filter((v) => v.nr >= from && v.nr <= to);
+const irr = (id: IrregularVerb['id']) => irregularVerbs.find((v) => v.id === id)!;
+const vocabRange = (part: VocabPart, from: number, to: number) =>
+  vocab.filter((v) => v.part === part).slice(from - 1, to);
+
+function verbItems(verbs: RegularVerb[]): string[] {
+  return verbs.flatMap((v) => [
+    itemId.meaning(v, 'nl2fr'),
+    itemId.meaning(v, 'fr2nl'),
+    ...spellingPersons(v).map((p) => itemId.spelling(v, p)),
+  ]);
+}
+const irregularItems = (v: IrregularVerb) => PERSONS.map((p) => itemId.irregular(v, p));
+const vocabItems = (words: VocabItem[]) =>
+  words.flatMap((w) => [itemId.vocab(w, 'fr2nl'), itemId.vocab(w, 'nl2fr')]);
+
+// Lesson order (design D9): avoir before the passé composé, the -er rule
+// before test sentences, vocabulary in portions alongside the grammar.
+export const lessons: Lesson[] = [
+  {
+    id: 'l1',
+    title: 'Avoir en être · woorden A (1-10)',
+    explanationIds: ['avoir-etre', 'vocab'],
+    itemIds: [...irregularItems(irr('avoir')), ...irregularItems(irr('etre')), ...vocabItems(vocabRange('A', 1, 10))],
+  },
+  {
+    id: 'l2',
+    title: 'Regelmatige -er werkwoorden 1-8 · woorden A (11-20)',
+    explanationIds: ['er-present'],
+    itemIds: [...PERSONS.map(itemId.ending), ...verbItems(verbsByNr(1, 8)), ...vocabItems(vocabRange('A', 11, 20))],
+  },
+  {
+    id: 'l3',
+    title: 'Faire en aller · werkwoorden 9-17 · woorden B (1-10)',
+    explanationIds: ['faire-aller'],
+    itemIds: [
+      ...irregularItems(irr('faire')),
+      ...irregularItems(irr('aller')),
+      ...verbItems(verbsByNr(9, 17)),
+      ...vocabItems(vocabRange('B', 1, 10)),
+    ],
+  },
+  {
+    id: 'l4',
+    title: 'Werkwoorden 18-25 en spelling · woorden B (11-20)',
+    explanationIds: ['spelling'],
+    itemIds: [...verbItems(verbsByNr(18, 25)), ...vocabItems(vocabRange('B', 11, 20))],
+  },
+  {
+    id: 'l5',
+    title: 'Passé composé · woorden E (1-10)',
+    explanationIds: ['passe-compose'],
+    itemIds: [
+      itemId.pcRule(),
+      ...PERSONS.map(itemId.aux),
+      ...irregularVerbs.filter((v) => v.participle).map(itemId.participle),
+      ...vocabItems(vocabRange('E', 1, 10)),
+    ],
+  },
+  {
+    id: 'l6',
+    title: 'Toetszinnen · woorden E (11-20)',
+    explanationIds: ['toetszin'],
+    itemIds: vocabItems(vocabRange('E', 11, 20)),
+  },
+  {
+    id: 'l7',
+    title: 'Woorden F',
+    explanationIds: [],
+    itemIds: vocabItems(vocabRange('F', 1, 20)),
+  },
+];
+
+export const pack: ContentPack = {
+  id: 'pww-oct26',
+  title: 'Proefwerk Frans · oktober 2026',
+  testDate: '2026-10-12',
+  regularVerbs,
+  irregularVerbs,
+  vocab,
+  explanations,
+  subjects,
+  lessons,
+};
