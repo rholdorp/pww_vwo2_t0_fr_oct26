@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1f4e9c"/>
+  <rect x="96" y="356" width="106" height="28" rx="14" fill="#ffffff"/>
+  <rect x="203" y="356" width="106" height="28" fill="#ffffff" opacity="0.6"/>
+  <rect x="310" y="356" width="106" height="28" rx="14" fill="#e4413a"/>
+  <text x="256" y="300" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="220" fill="#ffffff">Fr</text>
+</svg>

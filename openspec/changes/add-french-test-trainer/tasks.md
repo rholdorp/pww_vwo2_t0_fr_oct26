@@ -58,7 +58,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 10. Offline en publicatie (offline-access)
 
-- [ ] 10.1 vite-plugin-pwa met manifest (naam, iconen) en precache; controleren dat Lighthouse de app als installeerbaar ziet en dat de app op een telefoon aan het beginscherm toe te voegen is
+- [x] 10.1 vite-plugin-pwa met manifest (naam, iconen) en precache; controleren dat Lighthouse de app als installeerbaar ziet en dat de app op een telefoon aan het beginscherm toe te voegen is
 - [ ] 10.2 Offline-melding met aantal niet-verstuurde antwoorden en automatische update bij de volgende start; controleren in de browser met netwerk uit: sessie doen, melding zien, netwerk aan, antwoorden komen aan
 - [ ] 10.3 Publiceren met `firebase deploy` en de URL plus installatie-instructies (iOS en Android) in `README.md` zetten; controleren dat de gepubliceerde URL op telefoon en laptop werkt
 
