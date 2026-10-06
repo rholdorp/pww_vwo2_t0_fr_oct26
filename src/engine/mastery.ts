@@ -26,6 +26,7 @@ export interface ItemState {
   level: Level;
   /** Local day (YYYY-MM-DD) on which the item first reached level 3. */
   fastDay?: string;
+  firstSeen: number;
   lastSeen: number;
   attempts: number;
   wrong: number;
@@ -49,7 +50,7 @@ export function dayKey(at: number): string {
 }
 
 export function applyAnswer(prev: ItemState | undefined, correct: boolean, a: AnswerRecord): ItemState {
-  const s: ItemState = prev ? { ...prev } : { level: 0, lastSeen: 0, attempts: 0, wrong: 0 };
+  const s: ItemState = prev ? { ...prev } : { level: 0, firstSeen: a.at, lastSeen: 0, attempts: 0, wrong: 0 };
   s.attempts++;
   s.lastSeen = a.at;
   const today = dayKey(a.at);

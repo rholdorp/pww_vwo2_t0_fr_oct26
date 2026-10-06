@@ -87,7 +87,7 @@ describe('percentages per block', () => {
     expect(vocabItems).toHaveLength(160);
     const states = new Map<string, ItemState>();
     vocabItems.slice(0, 80).forEach((it, i) => {
-      states.set(it.id, { level: i < 40 ? 3 : 2, lastSeen: 0, attempts: 1, wrong: 0 });
+      states.set(it.id, { level: i < 40 ? 3 : 2, firstSeen: 0, lastSeen: 0, attempts: 1, wrong: 0 });
     });
     const stats = computeStats(items, states);
     expect(stats.blocks[3]).toEqual({ total: 160, mastered: 50, automated: 25 });
