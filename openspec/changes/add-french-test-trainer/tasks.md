@@ -36,7 +36,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 6. Inloggen met naam (learner-identity)
 
-- [ ] 6.1 Naamscherm met validatie (2-20 tekens, toegestane tekens), normalisatie naar `nameKey`, onthouden in `localStorage` en "Wissel van naam"; controleren in de browser dat "Stijn" en "stijn " op dezelfde voortgang uitkomen en dat herladen direct het dashboard opent
+- [x] 6.1 Naamscherm met validatie (2-20 tekens, toegestane tekens), normalisatie naar `nameKey`, onthouden in `localStorage` en "Wissel van naam"; controleren in de browser dat "Stijn" en "stijn " op dezelfde voortgang uitkomen en dat herladen direct het dashboard opent
 
 ## 7. Oefensessies (practice-sessions)
 
