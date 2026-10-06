@@ -49,7 +49,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 ## 8. Dashboard en overzicht (progress-overview)
 
 - [x] 8.1 Dashboard met percentages per blok en totaal, dagen tot de toets, dagdoel, zwakke punten, proeftoetsuitslagen en startknoppen; controleren in de browser met testdata
-- [ ] 8.2 `summary` op het learner-document bijwerken na elke sessie en toets, en een overzichtspagina met alle leerlingen; controleren door met twee namen te oefenen en het overzicht op een derde apparaat te openen
+- [x] 8.2 `summary` op het learner-document bijwerken na elke sessie en toets, en een overzichtspagina met alle leerlingen; controleren door met twee namen te oefenen en het overzicht op een derde apparaat te openen
 
 ## 9. Proeftoets (practice-test)
 
