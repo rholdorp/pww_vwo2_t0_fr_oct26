@@ -18,7 +18,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 3. Nakijken (answer-checking)
 
-- [ ] 3.1 `normalize()` en het nakijken van enkelvoudige antwoorden (accenten streng, opmaak soepel, voornaamwoord optioneel, elisie bij je, lidwoord verplicht in het Frans, soepel in het Nederlands); controleren met Vitest-tests voor elk scenario uit de spec `answer-checking`
+- [x] 3.1 `normalize()` en het nakijken van enkelvoudige antwoorden (accenten streng, opmaak soepel, voornaamwoord optioneel, elisie bij je, lidwoord verplicht in het Frans, soepel in het Nederlands); controleren met Vitest-tests voor elk scenario uit de spec `answer-checking`
 - [ ] 3.2 Diagnose van toetszinnen en passé composé (stamvergelijking, splitsen hulpwerkwoord/deelwoord, uitkomst per item); controleren met tests voor "achetez" en "trouvons" bij "Nous (kopen)"
 - [ ] 3.3 Verschilmarkering en uitlegsleutel bij een fout antwoord; controleren met tests op de diff voor "cherchons" vs "cherchez" en "je aime" vs "j'aime"
 
