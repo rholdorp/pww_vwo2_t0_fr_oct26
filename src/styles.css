@@ -90,7 +90,7 @@ button, .btn {
   touch-action: manipulation;
 }
 button.primary { background: var(--primary); color: var(--primary-text); border-color: var(--primary); font-weight: 600; }
-button.link { background: none; border: none; color: var(--primary); padding: 8px 4px; min-height: 0; text-decoration: underline; }
+button.link { align-self: flex-start; background: none; border: none; color: var(--primary); padding: 8px 4px; min-height: 0; text-decoration: underline; }
 button:disabled { opacity: 0.5; cursor: default; }
 button.full { width: 100%; }
 
@@ -129,10 +129,14 @@ input.bad { border-color: var(--bad); background: var(--bad-bg); }
 
 table.conj { border-collapse: collapse; width: 100%; }
 table.conj td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
-table.conj td:first-child { color: var(--muted); width: 40%; }
+table.conj td:first-child { width: 45%; }
 
 .banner { background: var(--warn-bg); border-radius: 12px; padding: 10px 14px; font-size: 0.92rem; }
 .big-number { font-size: 2.4rem; font-weight: 700; }
 ul.plain { list-style: none; padding: 0; margin: 0; }
 ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); }
 ul.plain li:last-child { border-bottom: none; }
+
+button.choice { text-align: left; }
+button.choice.good { border-color: var(--good); background: var(--good-bg); color: var(--good); opacity: 1; }
+button.choice.bad { border-color: var(--bad); background: var(--bad-bg); opacity: 1; }
