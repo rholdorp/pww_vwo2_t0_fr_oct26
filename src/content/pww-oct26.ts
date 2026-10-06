@@ -364,18 +364,21 @@ const vocabItems = (words: VocabItem[]) =>
 export const lessons: Lesson[] = [
   {
     id: 'l1',
+    fill: [{ verbId: 'avoir', tense: 'pres' }, { verbId: 'etre', tense: 'pres' }],
     title: 'Avoir en être · woorden A (1-10)',
     explanationIds: ['avoir-etre', 'vocab'],
     itemIds: [...irregularItems(irr('avoir')), ...irregularItems(irr('etre')), ...vocabItems(vocabRange('A', 1, 10))],
   },
   {
     id: 'l2',
+    fill: [{ verbId: 'regarder', tense: 'pres' }],
     title: 'Regelmatige -er werkwoorden 1-8 · woorden A (11-20)',
     explanationIds: ['er-present'],
     itemIds: [...PERSONS.map(itemId.ending), ...verbItems(verbsByNr(1, 8)), ...vocabItems(vocabRange('A', 11, 20))],
   },
   {
     id: 'l3',
+    fill: [{ verbId: 'faire', tense: 'pres' }, { verbId: 'aller', tense: 'pres' }],
     title: 'Faire en aller · werkwoorden 9-17 · woorden B (1-10)',
     explanationIds: ['faire-aller'],
     itemIds: [
@@ -387,12 +390,14 @@ export const lessons: Lesson[] = [
   },
   {
     id: 'l4',
+    fill: [{ verbId: 'acheter', tense: 'pres' }, { verbId: 'manger', tense: 'pres' }],
     title: 'Werkwoorden 18-25 en spelling · woorden B (11-20)',
     explanationIds: ['spelling'],
     itemIds: [...verbItems(verbsByNr(18, 25)), ...vocabItems(vocabRange('B', 11, 20))],
   },
   {
     id: 'l5',
+    fill: [{ verbId: 'regarder', tense: 'pc' }, { verbId: 'etre', tense: 'pc' }],
     title: 'Passé composé · woorden E (1-10)',
     explanationIds: ['passe-compose'],
     itemIds: [
@@ -404,12 +409,14 @@ export const lessons: Lesson[] = [
   },
   {
     id: 'l6',
+    fill: [],
     title: 'Toetszinnen · woorden E (11-20)',
     explanationIds: ['toetszin'],
     itemIds: vocabItems(vocabRange('E', 11, 20)),
   },
   {
     id: 'l7',
+    fill: [],
     title: 'Woorden F',
     explanationIds: [],
     itemIds: vocabItems(vocabRange('F', 1, 20)),

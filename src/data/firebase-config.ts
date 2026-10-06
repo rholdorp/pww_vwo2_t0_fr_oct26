@@ -1,14 +1,19 @@
 // Firebase web config. These values are public by design; access is
-// controlled by firestore.rules. Fill in after creating the project (task 5.1).
+// controlled by firestore.rules.
 import type { FirebaseOptions } from 'firebase/app';
 
-export const firebaseConfig: FirebaseOptions = {
-  apiKey: 'demo-key',
-  authDomain: 'demo-trainer.firebaseapp.com',
-  projectId: 'demo-trainer',
-  appId: 'demo-app',
+/** Local development uses the emulators (npm run emulators), see .env.development. */
+export const useEmulator = import.meta.env.VITE_USE_EMULATOR === 'true';
+
+const production: FirebaseOptions = {
+  apiKey: 'AIzaSyCLkf7z0ahA3Tl41zfzeUgV8F9PtIEMYRw',
+  authDomain: 'frans-trainer-vwo2-t0-oct26.firebaseapp.com',
+  projectId: 'frans-trainer-vwo2-t0-oct26',
+  storageBucket: 'frans-trainer-vwo2-t0-oct26.firebasestorage.app',
+  messagingSenderId: '262829577439',
+  appId: '1:262829577439:web:7e3f2e32c69f184136056a',
 };
 
-/** Use the local emulators (npm run emulators) for a demo project or when asked. */
-export const useEmulator =
-  firebaseConfig.projectId?.startsWith('demo-') || import.meta.env.VITE_USE_EMULATOR === 'true';
+export const firebaseConfig: FirebaseOptions = useEmulator
+  ? { ...production, projectId: 'demo-trainer' }
+  : production;

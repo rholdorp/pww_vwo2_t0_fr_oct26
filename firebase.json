@@ -1,7 +1,7 @@
 {
   "firestore": {
     "rules": "firestore.rules",
-    "location": "europe-west4"
+    "location": "eur3"
   },
   "hosting": {
     "public": "dist",

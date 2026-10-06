@@ -85,6 +85,8 @@ export interface Lesson {
   explanationIds: string[];
   /** Ids of all items introduced in this lesson (see items.ts). */
   itemIds: string[];
+  /** Conjugation tables the student fills in after the explanation. */
+  fill: { verbId: string; tense: Tense }[];
 }
 
 export interface ContentPack {

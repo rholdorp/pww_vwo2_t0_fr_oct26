@@ -29,9 +29,9 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 5. Firebase en opslag
 
-- [ ] 5.1 (Ouder) Firebase-project aanmaken volgens design → Migration Plan stap 1; controleren dat `firebase projects:list` het project toont en dat project-ID en `firebaseConfig` zijn aangeleverd
-- [ ] 5.2 `firebase.json`, `.firebaserc` en de Firebase-config in de app toevoegen; Anonymous Auth en Firestore met persistent cache initialiseren; controleren in de browser dat een anonieme sessie ontstaat
-- [ ] 5.3 `firestore.rules` volgens design D7 schrijven en deployen; controleren met de Firestore-emulator of handmatig dat updates/deletes op `answers` worden geweigerd en creates met geldige velden slagen
+- [x] 5.1 (Ouder) Firebase-project aanmaken volgens design → Migration Plan stap 1; controleren dat `firebase projects:list` het project toont en dat project-ID en `firebaseConfig` zijn aangeleverd
+- [x] 5.2 `firebase.json`, `.firebaserc` en de Firebase-config in de app toevoegen; Anonymous Auth en Firestore met persistent cache initialiseren; controleren in de browser dat een anonieme sessie ontstaat
+- [x] 5.3 `firestore.rules` volgens design D7 schrijven en deployen; controleren met de Firestore-emulator of handmatig dat updates/deletes op `answers` worden geweigerd en creates met geldige velden slagen
 - [ ] 5.4 Opslaglaag: learner-document aanmaken/bijwerken, antwoorden en toetsuitslagen toevoegen, eigen logboek realtime lezen, aantal niet-verstuurde antwoorden bijhouden; controleren dat een antwoord op apparaat A binnen enkele seconden op apparaat B in de voortgang meetelt
 
 ## 6. Inloggen met naam (learner-identity)
