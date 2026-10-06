@@ -9,17 +9,19 @@ import { dayKey, levelOf } from './mastery';
 export const SESSION_MS = 15 * 60 * 1000;
 export const NEW_LESSON_THRESHOLD = 0.8;
 
-/** A lesson counts as offered once any of its items has been answered. */
+const seen = (states: Map<string, ItemState>, id: string) => states.get(id)?.firstSeen !== undefined;
+
+/** A lesson counts as offered once any of its items has been practised (practice tests excluded). */
 export function isIntroduced(lesson: Lesson, states: Map<string, ItemState>): boolean {
-  return lesson.itemIds.some((id) => states.has(id));
+  return lesson.itemIds.some((id) => seen(states, id));
 }
 
 /** Moment the lesson was first practised (earliest first answer of its items). */
 export function introducedAt(lesson: Lesson, states: Map<string, ItemState>): number | undefined {
   let first: number | undefined;
   for (const id of lesson.itemIds) {
-    const s = states.get(id);
-    if (s && (first === undefined || s.firstSeen < first)) first = s.firstSeen;
+    const f = states.get(id)?.firstSeen;
+    if (f !== undefined && (first === undefined || f < first)) first = f;
   }
   return first;
 }
@@ -47,12 +49,21 @@ export function readyForNewLesson(pack: ContentPack, states: Map<string, ItemSta
 
 /** Regular verbs whose meaning has been offered (used for ending and pc drills). */
 export function knownVerbs(pack: ContentPack, states: Map<string, ItemState>): RegularVerb[] {
-  return pack.regularVerbs.filter((v) => states.has(itemId.meaning(v, 'nl2fr')) || states.has(itemId.meaning(v, 'fr2nl')));
+  return pack.regularVerbs.filter((v) => seen(states, itemId.meaning(v, 'nl2fr')) || seen(states, itemId.meaning(v, 'fr2nl')));
 }
 
-/** Items to practise: all items of offered lessons. */
-export function candidateItems(pack: ContentPack, states: Map<string, ItemState>): string[] {
-  return introducedLessons(pack, states).flatMap((l) => l.itemIds);
+const RECENT_WRONG_MS = 48 * 3_600_000;
+
+/**
+ * Items to practise: all items of offered lessons, plus items answered wrong
+ * recently elsewhere (e.g. in a practice test), so mistakes come back.
+ */
+export function candidateItems(pack: ContentPack, states: Map<string, ItemState>, now = Date.now()): string[] {
+  const ids = new Set(introducedLessons(pack, states).flatMap((l) => l.itemIds));
+  for (const [id, s] of states) {
+    if (s.lastWrongAt !== undefined && now - s.lastWrongAt < RECENT_WRONG_MS) ids.add(id);
+  }
+  return [...ids];
 }
 
 /**

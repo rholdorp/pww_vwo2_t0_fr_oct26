@@ -3,8 +3,9 @@ import { pack } from '../content/pww-oct26';
 import type { GenContext } from './generate';
 import { questionFor } from './generate';
 import type { ItemState, Level } from './mastery';
+import { replay } from './mastery';
 import {
-  dayPlan, knownVerbs, nextLesson, pickNextItem, readyForNewLesson, ReaskQueue,
+  candidateItems, dayPlan, knownVerbs, nextLesson, pickNextItem, readyForNewLesson, ReaskQueue,
 } from './session';
 
 const at = (d: number, h = 10) => new Date(2026, 9, d, h).getTime();
@@ -168,5 +169,21 @@ describe('day plan', () => {
     const p = dayPlan(pack, withLessons(7, 2, 9), at(11));
     expect(p.reviewDay).toBe(true);
     expect(p.lessonsToday).toEqual([]);
+  });
+});
+
+describe('practice test answers', () => {
+  const testAnswer = (id: string, correct: boolean) => ({
+    items: { [id]: correct }, ms: 3000, fast: false, at: at(10), mode: 'test' as const, sessionId: 't',
+  });
+
+  it('do not start a lesson', () => {
+    const states = replay([testAnswer('mean:payer:nl2fr', true), testAnswer('pc:rule', true)]);
+    expect(nextLesson(pack, states)!.id).toBe('l1');
+  });
+
+  it('wrong ones come back in the next session', () => {
+    const states = replay([testAnswer('pc:aux:vous', false)]);
+    expect(candidateItems(pack, states, at(10, 12))).toContain('pc:aux:vous');
   });
 });
