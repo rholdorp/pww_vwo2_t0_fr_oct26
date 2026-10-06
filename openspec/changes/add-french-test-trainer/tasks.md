@@ -24,8 +24,8 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 4. Voortgang (mastery-tracking) - lokale logica
 
-- [ ] 4.1 Niveau-afspelen per item uit een lijst antwoorden (0-4, snelheidsgrenzen 5 s / 8 s, terugval niet onder 1, niveau 4 op een latere kalenderdag); controleren met Vitest-tests voor alle scenario's uit de spec
-- [ ] 4.2 Percentages "% beheerst" en "% geautomatiseerd" per blok en totaal; controleren met een test op het voorbeeld 80/160 en 40/160
+- [x] 4.1 Niveau-afspelen per item uit een lijst antwoorden (0-4, snelheidsgrenzen 5 s / 8 s, terugval niet onder 1, niveau 4 op een latere kalenderdag); controleren met Vitest-tests voor alle scenario's uit de spec
+- [x] 4.2 Percentages "% beheerst" en "% geautomatiseerd" per blok en totaal; controleren met een test op het voorbeeld 80/160 en 40/160
 
 ## 5. Firebase en opslag
 
