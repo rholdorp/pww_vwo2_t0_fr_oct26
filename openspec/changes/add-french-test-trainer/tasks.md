@@ -64,4 +64,4 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 11. Eindcontrole
 
-- [ ] 11.1 Volledige doorloop met de naam "test": een les, een sessie op de telefoon offline, dezelfde voortgang op de laptop, een proeftoets en het overzicht; controleren dat alle stappen werken en `npm test` groen is, daarna de testleerling verwijderen via de Firebase-console
+- [x] 11.1 Volledige doorloop met de naam "test": een les, een sessie op de telefoon offline, dezelfde voortgang op de laptop, een proeftoets en het overzicht; controleren dat alle stappen werken en `npm test` groen is, daarna de testleerling verwijderen via de Firebase-console
