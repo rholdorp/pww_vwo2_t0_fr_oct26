@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { updateSummary } from '../data/store';
 import { Dashboard } from './Dashboard';
+import { PracticeTest } from './PracticeTest';
 import { Session } from './Session';
 import { useLearner } from './useLearner';
 
@@ -40,7 +41,7 @@ export function LearnerApp({ learnerKey, displayName, onSwitch, onOverview }: Pr
     case 'session':
       return <Session learner={learner} forceLesson={route.forceLesson} onDone={home} />;
     case 'test':
-      return <main class="page"><p>Proeftoets volgt.</p><button onClick={home}>Terug</button></main>;
+      return <PracticeTest learner={learner} onDone={home} />;
     default:
       return (
         <Dashboard

@@ -2,6 +2,7 @@ import { BLOCK_TITLE } from '../content/items';
 import { pack } from '../content/pww-oct26';
 import type { Block } from '../content/types';
 import { dayKey } from '../engine/mastery';
+import { formatGrade } from '../engine/practiceTest';
 import { dayPlan, nextLesson } from '../engine/session';
 import { weakPoints } from '../engine/weak';
 import type { Learner } from './useLearner';
@@ -103,7 +104,7 @@ export function Dashboard({ learner, onPractice, onTest, onSwitch, onOverview }:
             {[...learner.tests].reverse().map((t) => (
               <li key={t.at} class="row spread">
                 <span>{fmtDate(t.at)}</span>
-                <span>{t.score}/{t.total} · <strong>{t.grade.toFixed(1).replace('.', ',')}</strong></span>
+                <span>{t.score}/{t.total} · <strong>{formatGrade(t.grade)}</strong></span>
               </li>
             ))}
           </ul>

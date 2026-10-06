@@ -53,8 +53,8 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 9. Proeftoets (practice-test)
 
-- [ ] 9.1 Proeftoets van 40 vragen (10/10/10/10) met onderwerpen zoals in het draaiboek, timer, zonder hulp; controleren met een Vitest-test op de samenstelling en handmatig in de browser
-- [ ] 9.2 Cijfer (1 + 9 × goed/totaal, één decimaal), nabespreking van fouten met uitleg, uitkomsten in het logboek en uitslag bewaard; controleren met een test op 32/40 → 8,2 en handmatig dat fout beantwoorde items in de volgende sessie terugkomen
+- [x] 9.1 Proeftoets van 40 vragen (10/10/10/10) met onderwerpen zoals in het draaiboek, timer, zonder hulp; controleren met een Vitest-test op de samenstelling en handmatig in de browser
+- [x] 9.2 Cijfer (1 + 9 × goed/totaal, één decimaal), nabespreking van fouten met uitleg, uitkomsten in het logboek en uitslag bewaard; controleren met een test op 32/40 → 8,2 en handmatig dat fout beantwoorde items in de volgende sessie terugkomen
 
 ## 10. Offline en publicatie (offline-access)
 
