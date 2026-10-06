@@ -70,7 +70,8 @@ function FillTable({ verbId, tense, onChecked }: {
   }));
 
   const submit = () => {
-    const rs = questions.map((q, i) => check(q, values[i], pack.regularVerbs));
+    const current = inputs.current.map((el, i) => el?.value ?? values[i]);
+    const rs = questions.map((q, i) => check(q, current[i], pack.regularVerbs));
     setResults(rs);
     onChecked(questions.map((q, i) => ({ q, r: rs[i] })));
   };
@@ -90,9 +91,8 @@ function FillTable({ verbId, tense, onChecked }: {
             readOnly={!!results}
             onFocus={() => setFocused(i)}
             onInput={(e) => {
-              const v = [...values];
-              v[i] = (e.target as HTMLInputElement).value;
-              setValues(v);
+              const val = (e.target as HTMLInputElement).value;
+              setValues((prev) => prev.map((x, k) => (k === i ? val : x)));
             }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
@@ -115,11 +115,7 @@ function FillTable({ verbId, tense, onChecked }: {
         <>
           <AccentBar
             target={() => inputs.current[focused]}
-            onChange={(val) => {
-              const v = [...values];
-              v[focused] = val;
-              setValues(v);
-            }}
+            onChange={(val) => setValues((prev) => prev.map((x, k) => (k === focused ? val : x)))}
           />
           <button class="primary full" onClick={submit}>Controleer</button>
         </>
