@@ -32,7 +32,7 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 - [x] 5.1 (Ouder) Firebase-project aanmaken volgens design → Migration Plan stap 1; controleren dat `firebase projects:list` het project toont en dat project-ID en `firebaseConfig` zijn aangeleverd
 - [x] 5.2 `firebase.json`, `.firebaserc` en de Firebase-config in de app toevoegen; Anonymous Auth en Firestore met persistent cache initialiseren; controleren in de browser dat een anonieme sessie ontstaat
 - [x] 5.3 `firestore.rules` volgens design D7 schrijven en deployen; controleren met de Firestore-emulator of handmatig dat updates/deletes op `answers` worden geweigerd en creates met geldige velden slagen
-- [ ] 5.4 Opslaglaag: learner-document aanmaken/bijwerken, antwoorden en toetsuitslagen toevoegen, eigen logboek realtime lezen, aantal niet-verstuurde antwoorden bijhouden; controleren dat een antwoord op apparaat A binnen enkele seconden op apparaat B in de voortgang meetelt
+- [x] 5.4 Opslaglaag: learner-document aanmaken/bijwerken, antwoorden en toetsuitslagen toevoegen, eigen logboek realtime lezen, aantal niet-verstuurde antwoorden bijhouden; controleren dat een antwoord op apparaat A binnen enkele seconden op apparaat B in de voortgang meetelt
 
 ## 6. Inloggen met naam (learner-identity)
 
@@ -40,15 +40,15 @@ Werkafspraak: na elke afgeronde taak (of kleine groep taken) een kleine commit m
 
 ## 7. Oefensessies (practice-sessions)
 
-- [ ] 7.1 Lesscherm: uitleg + rijtje/woorden, gevolgd door de invuloefening in draaiboekvorm; controleren in de browser met de les "avoir in de présent"
-- [ ] 7.2 Vraagtypen: meerkeuze (niveau 0), typvraag (niveau ≥1) en toetszin (zodra de betrokken items op niveau ≥2 staan), met antwoordtijdmeting; controleren in de browser dat een nieuw woord als meerkeuzevraag verschijnt
-- [ ] 7.3 Accentknoppen é è ê à ç ' die op de cursor invoegen zonder het toetsenbord te sluiten; controleren op een echte telefoon (iOS Safari) of in de mobiele emulatie
-- [ ] 7.4 Sessieopbouw: nieuwe les bij ≥80% beheersing of op verzoek, herhalingsprioriteit, fout item na 3-5 vragen terug, afsluiten na ~15 minuten met samenvatting; controleren met Vitest-tests op de selectiefunctie en een handmatige sessie in de browser
-- [ ] 7.5 Dagplan: resterende lessen verdelen over de resterende dagen tot de toetsdatum, laatste dag voor herhalen en proeftoetsen; controleren met Vitest-tests voor normaal verloop en een overgeslagen dag
+- [x] 7.1 Lesscherm: uitleg + rijtje/woorden, gevolgd door de invuloefening in draaiboekvorm; controleren in de browser met de les "avoir in de présent"
+- [x] 7.2 Vraagtypen: meerkeuze (niveau 0), typvraag (niveau ≥1) en toetszin (zodra de betrokken items op niveau ≥2 staan), met antwoordtijdmeting; controleren in de browser dat een nieuw woord als meerkeuzevraag verschijnt
+- [x] 7.3 Accentknoppen é è ê à ç ' die op de cursor invoegen zonder het toetsenbord te sluiten; controleren op een echte telefoon (iOS Safari) of in de mobiele emulatie
+- [x] 7.4 Sessieopbouw: nieuwe les bij ≥80% beheersing of op verzoek, herhalingsprioriteit, fout item na 3-5 vragen terug, afsluiten na ~15 minuten met samenvatting; controleren met Vitest-tests op de selectiefunctie en een handmatige sessie in de browser
+- [x] 7.5 Dagplan: resterende lessen verdelen over de resterende dagen tot de toetsdatum, laatste dag voor herhalen en proeftoetsen; controleren met Vitest-tests voor normaal verloop en een overgeslagen dag
 
 ## 8. Dashboard en overzicht (progress-overview)
 
-- [ ] 8.1 Dashboard met percentages per blok en totaal, dagen tot de toets, dagdoel, zwakke punten, proeftoetsuitslagen en startknoppen; controleren in de browser met testdata
+- [x] 8.1 Dashboard met percentages per blok en totaal, dagen tot de toets, dagdoel, zwakke punten, proeftoetsuitslagen en startknoppen; controleren in de browser met testdata
 - [ ] 8.2 `summary` op het learner-document bijwerken na elke sessie en toets, en een overzichtspagina met alle leerlingen; controleren door met twee namen te oefenen en het overzicht op een derde apparaat te openen
 
 ## 9. Proeftoets (practice-test)
