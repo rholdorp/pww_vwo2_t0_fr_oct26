@@ -4,7 +4,7 @@ Werkafspraak: na elke afgeronde taak een kleine commit en push naar `origin`, ui
 
 ## 1. Engine
 
-- [ ] 1.1 `buildVocabRound` in `src/engine/vocabRound.ts` (design D1); controleren met Vitest-tests: een deel geeft 20 typvragen met elk woordpaar van dat deel precies één keer, beide richtingen komen voor over meerdere rondes, en "alles" kiest bij een sterk deel A en zwak deel F vooral woorden uit F
+- [x] 1.1 `buildVocabRound` in `src/engine/vocabRound.ts` (design D1); controleren met Vitest-tests: een deel geeft 20 typvragen met elk woordpaar van dat deel precies één keer, beide richtingen komen voor over meerdere rondes, en "alles" kiest bij een sterk deel A en zwak deel F vooral woorden uit F
 - [ ] 1.2 Lesstart alleen op grammatica-items, woordlessen op woorden (design D2) in `isIntroduced` en `introducedAt`; controleren met Vitest-tests voor beide scenario's uit de spec "Grammaticapad blijft intact" en dat alle bestaande tests groen blijven
 
 ## 2. Scherm en dashboard
