@@ -11,15 +11,25 @@ export const NEW_LESSON_THRESHOLD = 0.8;
 
 const seen = (states: Map<string, ItemState>, id: string) => states.get(id)?.firstSeen !== undefined;
 
-/** A lesson counts as offered once any of its items has been practised (practice tests excluded). */
-export function isIntroduced(lesson: Lesson, states: Map<string, ItemState>): boolean {
-  return lesson.itemIds.some((id) => seen(states, id));
+/**
+ * Items that start a lesson: its grammar items, or all items for a lesson
+ * with only words. Practising words in the vocabulary trainer must not skip
+ * a grammar lesson (vocab-trainer spec, design D2).
+ */
+export function startItems(lesson: Lesson): string[] {
+  const grammar = lesson.itemIds.filter((id) => !id.startsWith('voc:'));
+  return grammar.length ? grammar : lesson.itemIds;
 }
 
-/** Moment the lesson was first practised (earliest first answer of its items). */
+/** A lesson counts as offered once one of its start items has been practised (practice tests excluded). */
+export function isIntroduced(lesson: Lesson, states: Map<string, ItemState>): boolean {
+  return startItems(lesson).some((id) => seen(states, id));
+}
+
+/** Moment the lesson was first practised (earliest first answer of its start items). */
 export function introducedAt(lesson: Lesson, states: Map<string, ItemState>): number | undefined {
   let first: number | undefined;
-  for (const id of lesson.itemIds) {
+  for (const id of startItems(lesson)) {
     const f = states.get(id)?.firstSeen;
     if (f !== undefined && (first === undefined || f < first)) first = f;
   }

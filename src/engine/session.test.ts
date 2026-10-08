@@ -5,7 +5,7 @@ import { questionFor } from './generate';
 import type { ItemState, Level } from './mastery';
 import { replay } from './mastery';
 import {
-  candidateItems, dayPlan, knownVerbs, nextLesson, pickNextItem, readyForNewLesson, ReaskQueue,
+  candidateItems, dayPlan, introducedLessons, knownVerbs, nextLesson, pickNextItem, readyForNewLesson, ReaskQueue,
 } from './session';
 
 const at = (d: number, h = 10) => new Date(2026, 9, d, h).getTime();
@@ -185,5 +185,27 @@ describe('practice test answers', () => {
   it('wrong ones come back in the next session', () => {
     const states = replay([testAnswer('pc:aux:vous', false)]);
     expect(candidateItems(pack, states, at(10, 12))).toContain('pc:aux:vous');
+  });
+});
+
+describe('vocabulary trainer keeps the grammar path intact', () => {
+  const typed = (ids: string[], day = 8) => ids.map((id, k) => ({
+    items: { [id]: true }, ms: 3000, fast: false, at: at(day) + k, mode: 'type' as const, sessionId: 'v',
+  }));
+  const vocabOf = (part: string) => pack.vocab.filter((w) => w.part === part)
+    .flatMap((w) => [`voc:${w.id}:fr2nl`, `voc:${w.id}:nl2fr`]);
+
+  it('words of part A do not start lesson 1', () => {
+    const states = replay(typed(vocabOf('A')));
+    expect(nextLesson(pack, states)!.id).toBe('l1');
+    expect(dayPlan(pack, states, at(8, 18)).doneToday).toEqual([]);
+  });
+
+  it('words of part F start lesson 7, which has only words', () => {
+    const states = replay(typed(vocabOf('F')));
+    const l7 = pack.lessons.find((l) => l.id === 'l7')!;
+    expect(dayPlan(pack, states, at(8, 18)).lessonsToday.length).toBeGreaterThan(0);
+    expect(nextLesson(pack, states)!.id).toBe('l1');
+    expect(introducedLessons(pack, states)).toEqual([l7]);
   });
 });
