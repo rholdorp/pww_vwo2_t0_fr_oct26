@@ -1,6 +1,7 @@
 import { BLOCK_TITLE } from '../content/items';
 import { pack } from '../content/pww-oct26';
-import type { Block } from '../content/types';
+import type { Block, VocabPart } from '../content/types';
+import type { VocabChoice } from '../engine/vocabRound';
 import { dayKey } from '../engine/mastery';
 import { formatGrade } from '../engine/practiceTest';
 import { dayPlan, nextLesson } from '../engine/session';
@@ -36,11 +37,12 @@ interface Props {
   learner: Learner;
   onPractice: (forceLesson: boolean) => void;
   onTest: () => void;
+  onVocab: (choice: VocabChoice) => void;
   onSwitch: () => void;
   onOverview: () => void;
 }
 
-export function Dashboard({ learner, onPractice, onTest, onSwitch, onOverview }: Props) {
+export function Dashboard({ learner, onPractice, onTest, onVocab, onSwitch, onOverview }: Props) {
   const { stats, states } = learner;
   const now = Date.now();
   const plan = dayPlan(pack, states, now);
@@ -79,6 +81,17 @@ export function Dashboard({ learner, onPractice, onTest, onSwitch, onOverview }:
           {upcoming && <button onClick={() => onPractice(true)}>Volgende les: {upcoming.id.slice(1)}</button>}
           <button onClick={onTest}>Proeftoets</button>
         </div>
+      </section>
+
+      <section class="card stack">
+        <h2>Woordjes</h2>
+        <p class="muted">20 woorden per ronde, Frans en Nederlands door elkaar.</p>
+        <div class="parts">
+          {(['A', 'B', 'E', 'F'] as VocabPart[]).map((p) => (
+            <button key={p} onClick={() => onVocab(p)} aria-label={`Woorden deel ${p}`}>{p}</button>
+          ))}
+        </div>
+        <button class="link" onClick={() => onVocab('all')}>alles door elkaar</button>
       </section>
 
       <section class="card stack">

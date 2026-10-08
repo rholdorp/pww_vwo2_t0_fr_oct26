@@ -9,8 +9,8 @@ Werkafspraak: na elke afgeronde taak een kleine commit en push naar `origin`, ui
 
 ## 2. Scherm en dashboard
 
-- [ ] 2.1 `VocabTrainer`-scherm met ronde, typvragen via `QuestionView`, opslaan van elk antwoord en samenvatting met score, tijd en foute woorden (design D3); controleren in de browser tegen de emulator: een ronde van deel B afmaken met een paar bewuste fouten en de samenvatting nalopen
-- [ ] 2.2 Kaart "Woordjes" op het dashboard met knoppen A, B, E, F en de link "alles door elkaar", route in `LearnerApp`, en een korte beschrijving in `README.md` onder "Gebruik"; controleren in de browser op 375px en desktop dat één tik de ronde start en dat de percentages van blok 3 na een ronde stijgen
+- [x] 2.1 `VocabTrainer`-scherm met ronde, typvragen via `QuestionView`, opslaan van elk antwoord en samenvatting met score, tijd en foute woorden (design D3); controleren in de browser tegen de emulator: een ronde van deel B afmaken met een paar bewuste fouten en de samenvatting nalopen
+- [x] 2.2 Kaart "Woordjes" op het dashboard met knoppen A, B, E, F en de link "alles door elkaar", route in `LearnerApp`, en een korte beschrijving in `README.md` onder "Gebruik"; controleren in de browser op 375px en desktop dat één tik de ronde start en dat de percentages van blok 3 na een ronde stijgen
 
 ## 3. Publiceren
 

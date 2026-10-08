@@ -5,6 +5,8 @@ import { OfflineBanner } from './OfflineBanner';
 import { PracticeTest } from './PracticeTest';
 import { Session } from './Session';
 import { useLearner } from './useLearner';
+import type { VocabChoice } from '../engine/vocabRound';
+import { VocabTrainer } from './VocabTrainer';
 
 interface Props {
   learnerKey: string;
@@ -13,7 +15,11 @@ interface Props {
   onOverview: () => void;
 }
 
-type Route = { name: 'dashboard' } | { name: 'session'; forceLesson: boolean } | { name: 'test' };
+type Route =
+  | { name: 'dashboard' }
+  | { name: 'session'; forceLesson: boolean }
+  | { name: 'test' }
+  | { name: 'vocab'; choice: VocabChoice };
 
 export function LearnerApp({ learnerKey, displayName, onSwitch, onOverview }: Props) {
   const learner = useLearner(learnerKey, displayName);
@@ -46,12 +52,16 @@ export function LearnerApp({ learnerKey, displayName, onSwitch, onOverview }: Pr
     case 'test':
       content = <PracticeTest learner={learner} onDone={home} />;
       break;
+    case 'vocab':
+      content = <VocabTrainer key={route.choice} learner={learner} choice={route.choice} onDone={home} />;
+      break;
     default:
       content = (
         <Dashboard
           learner={learner}
           onPractice={(forceLesson) => setRoute({ name: 'session', forceLesson })}
           onTest={() => setRoute({ name: 'test' })}
+          onVocab={(choice) => setRoute({ name: 'vocab', choice })}
           onSwitch={onSwitch}
           onOverview={onOverview}
         />

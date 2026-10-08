@@ -8,8 +8,9 @@ Trainer voor het proefwerk Frans (VWO 2, maandag 12 oktober 2026): présent en p
 
 1. Open de link en vul een zelfverzonnen naam in. Gebruik op telefoon en laptop **dezelfde naam**, dan zie je overal dezelfde voortgang.
 2. Druk op **Oefenen (15 min)**. De app geeft eerst uitleg bij nieuwe stof en overhoort daarna. Twee à drie sessies per dag is het plan.
-3. Maak tegen het eind een **Proeftoets** (40 vragen, cijfer 1-10).
-4. Ouders kunnen meekijken via **Overzicht** op het naamscherm of het dashboard.
+3. Woordjes stampen los van de grammatica: tik bij **Woordjes** op deel **A**, **B**, **E** of **F**. Je krijgt de 20 woorden van dat deel één keer, Frans en Nederlands door elkaar, en altijd typen. Aan het eind zie je je score, je tijd en welke woorden fout gingen. Met *alles door elkaar* krijg je 20 woorden uit alle delen, de zwakste eerst.
+4. Maak tegen het eind een **Proeftoets** (40 vragen, cijfer 1-10).
+5. Ouders kunnen meekijken via **Overzicht** op het naamscherm of het dashboard.
 
 Werkt ook zonder internet: antwoorden worden bewaard en later vanzelf verstuurd.
 

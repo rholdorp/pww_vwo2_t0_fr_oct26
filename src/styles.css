@@ -142,3 +142,6 @@ button.choice.good { border-color: var(--good); background: var(--good-bg); colo
 button.choice.bad { border-color: var(--bad); background: var(--bad-bg); opacity: 1; }
 .banner.top { max-width: 608px; margin: max(12px, env(safe-area-inset-top)) 16px 0; }
 @media (min-width: 640px) { .banner.top { margin-left: auto; margin-right: auto; } }
+
+.parts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.parts button { font-size: 1.3rem; font-weight: 700; min-height: 56px; }
