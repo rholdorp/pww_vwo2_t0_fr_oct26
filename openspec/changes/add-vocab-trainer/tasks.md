@@ -14,4 +14,4 @@ Werkafspraak: na elke afgeronde taak een kleine commit en push naar `origin`, ui
 
 ## 3. Publiceren
 
-- [ ] 3.1 `npm test` en `npm run build` draaien en daarna `firebase deploy --only hosting`; controleren dat de gepubliceerde app de woordjeskaart toont en een ronde start (zonder in te loggen met een echte naam, of met een testnaam die daarna wordt verwijderd)
+- [x] 3.1 `npm test` en `npm run build` draaien en daarna `firebase deploy --only hosting`; controleren dat de gepubliceerde app de woordjeskaart toont en een ronde start (zonder in te loggen met een echte naam, of met een testnaam die daarna wordt verwijderd)
